@@ -1,43 +1,32 @@
 
+import java.util.*;
 
-import java.util.Scanner;
 
 public class Main {
-    static int i,c=0;
 
-    static void merging(int arr1[],int arr2[],int m,int n,int mergeArrays[] ){
-        for(i=0;i<(m+n);i++){
-            if(i<m&&i<n)
-              mergeArrays[i]=arr1[i];
-            else if(i>=m)
-                mergeArrays[i]=arr2[(i-m)];
+    public static ArrayList<Character> list;
 
 
-        }
-        for(i=0;i<(m+n);i++){
-        System.out.print(mergeArrays[i]);
-    }}
     public static void main(String[] args) {
-        int n,m,arr1[],arr2[];
-        Scanner sc=new Scanner(System.in);
-        System.out.println("Enter the size of the array");
-        n=sc.nextInt();
-        System.out.println("Enter the size of the second array");
-        m=sc.nextInt();
-        arr1=new int[m];
-        arr2=new int[n];
-        System.out.println("Enter the first array elements");
-        for(i=0;i<m;i++){
-            arr1[i]=sc.nextInt();
-        }
-        System.out.println("Enter the second one");
-        for(i=0;i<n;i++){
-            arr2[i]=sc.nextInt();
-        }
-        int mergeArrays[]=new int[(m+n)];
-        merging(arr1,arr2,m,n,mergeArrays);
-
-
 	// write your code here
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+        sorted(s);
+
     }
-}
+    public static void sorted(String s){
+        int i;String str="";
+       list = new ArrayList<>();
+        for(i=0;i<s.length();i++){
+            if(s.charAt(i)=='1'||s.charAt(i)=='2'||s.charAt(i)=='3')
+                list.add(s.charAt(i));
+        }
+               Collections.sort(list);
+        for(Character in:list){
+            str = str+in+"+";
+
+        }
+        System.out.print( str.substring(0,str.length()-1).trim());
+        }
+    }
+
